@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 name: Deploy Cloudflare Worker
 
 on:
@@ -8,18 +9,24 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy to Cloudflare Workers
-
     steps:
       # ১) কোড চেকআউট
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # ২) Worker ডিপ্লয়
+      # ২) Node.js ইনস্টল (npx/Node নিশ্চিত করার জন্য)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # ৩) Worker ডিপ্লয়
       - name: Publish Worker to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}     # আপনার API Token
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}   # আপনার Account ID
-          workingDirectory: .                       # আপনার প্রোজেক্ট ডিরেক্টরি
-          command: publish                          # Wrangler কমান্ড (publish)
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          workingDirectory: .
+          wranglerVersion: '2.20.0'    # Wrangler CLI ভার্সন পিন
+          packageManager: 'npm'        # npm ইউজ করতে বলুন
+          command: 'publish'           # wrangler publish
