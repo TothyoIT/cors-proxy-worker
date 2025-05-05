@@ -15,11 +15,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # ২) Worker ডিপ্লয়
-      - name: Publish Worker
-        uses: cloudflare/wrangler-action@v3       # <-- এখানে @v3 দেওয়া হয়েছে
+      # ২) Worker ডিপ্লয়
+      - name: Publish Worker to Cloudflare
+        uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}   # আপনার API Token
-          accountId: ${{ secrets.CF_ACCOUNT_ID }} # আপনার Account ID (v3 এ নাম পরিবর্তিত)
-          workingDirectory: .                     # আপনার প্রোজেক্ট ডিরেক্টরি
-          args: publish                           # Wrangler কমান্ড
+          apiToken: ${{ secrets.CF_API_TOKEN }}     # আপনার API Token
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}   # আপনার Account ID
+          workingDirectory: .                       # আপনার প্রোজেক্ট ডিরেক্টরি
+          command: publish                          # Wrangler কমান্ড (publish)
