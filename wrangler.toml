@@ -1,0 +1,13 @@
+name = "cors-proxy"
+main = "index.js"
+compatibility_date = "2025-05-05"
+
+# আপনার Cloudflare অ্যাকাউন্ট ও জোন আইডি
+account_id = "${CF_ACCOUNT_ID}"
+zone_id    = "${CF_ZONE_ID}"
+
+# workers_dev=false মানে আপনি ডিফল্ট workers.dev ডিপ্লয়
+workers_dev = false
+
+# path‑based রাউট: শুধুমাত্র /proxy/* এর রিকোয়েস্টই Worker হ্যান্ডেল করবে
+route = "www.tothyoit.com/proxy/*"
