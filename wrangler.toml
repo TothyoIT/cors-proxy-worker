@@ -2,7 +2,7 @@ name            = "cors-proxy-worker"
 main            = "index.js"
 compatibility_date = "2025-05-06"
 
-account_id      = "${CF_ACCOUNT_ID}"
-zone_id         = "${CF_ZONE_ID}"
+account_id      = "2c4588421340711d5a7b19b189393a3f"
+zone_id         = "b1466ca21d613c5ff3fb9e53fb234a45"
 workers_dev     = false
 route           = "proxy.tothyoit.com/*"
