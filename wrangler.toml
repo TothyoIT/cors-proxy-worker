@@ -1,10 +1,8 @@
-name = "cors-proxy-worker"
-main = "index.js"
-compatibility_date = "2025-05-05"
+name            = "cors-proxy-worker"
+main            = "index.js"
+compatibility_date = "2025-05-06"
 
-# আপনার Cloudflare অ্যাকাউন্ট এবং Zone ID এখানে বসান
-account_id = "2c4588421340711d5a7b19b189393a3f"
-zone_id    = "b1466ca21d613c5ff3fb9e53fb234a45"
-
-workers_dev = false
-route       = "proxy.tothyoit.com/*"
+account_id      = "${2c4588421340711d5a7b19b189393a3f}"
+zone_id         = "${b1466ca21d613c5ff3fb9e53fb234a45}"
+workers_dev     = false
+route           = "proxy.tothyoit.com/*"
